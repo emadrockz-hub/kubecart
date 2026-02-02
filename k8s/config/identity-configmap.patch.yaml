@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: identity-config
+  namespace: demo
+data:
+  DB_HOST: 10.244.0.1,1433

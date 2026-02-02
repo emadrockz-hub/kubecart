@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: identity-config
+  namespace: demo
+data:
+  DB_HOST: 172.27.16.1,1433
+  DB_NAME: KubeCart_Identity
+  DB_USER: sa

@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubecart-api-ingress
+  namespace: demo
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - host: kubecart.local
+      http:
+        paths:
+          - path: /api/auth(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: identity-service
+                port:
+                  number: 80
+
+          - path: /api/catalog(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: catalog-service
+                port:
+                  number: 80
+
+          - path: /api/orders(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: orders-service
+                port:
+                  number: 80

@@ -1,0 +1,6 @@
+@KubeCart.Orders.Api_HostAddress = http://localhost:5102
+
+GET {{KubeCart.Orders.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

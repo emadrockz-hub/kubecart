@@ -1,0 +1,210 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\kubecart\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD50663-31CA-44C3-B024-D80D3AF12DAF}|services\\orders\\src\\Orders.Api\\Orders.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\orders\\src\\orders.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD50663-31CA-44C3-B024-D80D3AF12DAF}|services\\orders\\src\\Orders.Api\\Orders.Api.csproj|solutionrelative:services\\orders\\src\\orders.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AD2E47-287C-483D-9E00-7EE9BFF92608}|services\\identity\\src\\Identity.Api\\Identity.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\identity\\src\\identity.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AD2E47-287C-483D-9E00-7EE9BFF92608}|services\\identity\\src\\Identity.Api\\Identity.Api.csproj|solutionrelative:services\\identity\\src\\identity.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9E538BC-3090-4599-AA9C-720803040583}|services\\catalog\\src\\Catalog.Api\\Catalog.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\catalog\\src\\catalog.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9E538BC-3090-4599-AA9C-720803040583}|services\\catalog\\src\\Catalog.Api\\Catalog.Api.csproj|solutionrelative:services\\catalog\\src\\catalog.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD50663-31CA-44C3-B024-D80D3AF12DAF}|services\\orders\\src\\Orders.Api\\Orders.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\orders\\src\\orders.api\\dockerfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1AD50663-31CA-44C3-B024-D80D3AF12DAF}|services\\orders\\src\\Orders.Api\\Orders.Api.csproj|solutionrelative:services\\orders\\src\\orders.api\\dockerfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9E538BC-3090-4599-AA9C-720803040583}|services\\catalog\\src\\Catalog.Api\\Catalog.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\catalog\\src\\catalog.api\\dockerfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C9E538BC-3090-4599-AA9C-720803040583}|services\\catalog\\src\\Catalog.Api\\Catalog.Api.csproj|solutionrelative:services\\catalog\\src\\catalog.api\\dockerfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AD2E47-287C-483D-9E00-7EE9BFF92608}|services\\identity\\src\\Identity.Api\\Identity.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\identity\\src\\identity.api\\dockerfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F4AD2E47-287C-483D-9E00-7EE9BFF92608}|services\\identity\\src\\Identity.Api\\Identity.Api.csproj|solutionrelative:services\\identity\\src\\identity.api\\dockerfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD50663-31CA-44C3-B024-D80D3AF12DAF}|services\\orders\\src\\Orders.Api\\Orders.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\orders\\src\\orders.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1AD50663-31CA-44C3-B024-D80D3AF12DAF}|services\\orders\\src\\Orders.Api\\Orders.Api.csproj|solutionrelative:services\\orders\\src\\orders.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD50663-31CA-44C3-B024-D80D3AF12DAF}|services\\orders\\src\\Orders.Api\\Orders.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\orders\\src\\orders.api\\health\\sqlconnectionhealthcheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD50663-31CA-44C3-B024-D80D3AF12DAF}|services\\orders\\src\\Orders.Api\\Orders.Api.csproj|solutionrelative:services\\orders\\src\\orders.api\\health\\sqlconnectionhealthcheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9E538BC-3090-4599-AA9C-720803040583}|services\\catalog\\src\\Catalog.Api\\Catalog.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\catalog\\src\\catalog.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C9E538BC-3090-4599-AA9C-720803040583}|services\\catalog\\src\\Catalog.Api\\Catalog.Api.csproj|solutionrelative:services\\catalog\\src\\catalog.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9E538BC-3090-4599-AA9C-720803040583}|services\\catalog\\src\\Catalog.Api\\Catalog.Api.csproj|c:\\users\\lenovo\\kubecart\\services\\catalog\\src\\catalog.api\\health\\sqlconnectionhealthcheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9E538BC-3090-4599-AA9C-720803040583}|services\\catalog\\src\\Catalog.Api\\Catalog.Api.csproj|solutionrelative:services\\catalog\\src\\catalog.api\\health\\sqlconnectionhealthcheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\identity\\src\\Identity.Api\\Program.cs",
+              "RelativeDocumentMoniker": "services\\identity\\src\\Identity.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\identity\\src\\Identity.Api\\Program.cs",
+              "RelativeToolTip": "services\\identity\\src\\Identity.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T09:08:04.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dockerfile.txt",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\orders\\src\\Orders.Api\\Dockerfile.txt",
+              "RelativeDocumentMoniker": "services\\orders\\src\\Orders.Api\\Dockerfile.txt",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\orders\\src\\Orders.Api\\Dockerfile.txt",
+              "RelativeToolTip": "services\\orders\\src\\Orders.Api\\Dockerfile.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-01T03:49:48.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dockerfile.txt",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\catalog\\src\\Catalog.Api\\Dockerfile.txt",
+              "RelativeDocumentMoniker": "services\\catalog\\src\\Catalog.Api\\Dockerfile.txt",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\catalog\\src\\Catalog.Api\\Dockerfile.txt",
+              "RelativeToolTip": "services\\catalog\\src\\Catalog.Api\\Dockerfile.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-01T03:46:50.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Dockerfile.txt",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\identity\\src\\Identity.Api\\Dockerfile.txt",
+              "RelativeDocumentMoniker": "services\\identity\\src\\Identity.Api\\Dockerfile.txt",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\identity\\src\\Identity.Api\\Dockerfile.txt",
+              "RelativeToolTip": "services\\identity\\src\\Identity.Api\\Dockerfile.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-01T03:44:22.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\orders\\src\\Orders.Api\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "services\\orders\\src\\Orders.Api\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\orders\\src\\Orders.Api\\appsettings.Development.json",
+              "RelativeToolTip": "services\\orders\\src\\Orders.Api\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-01T03:32:08.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\catalog\\src\\Catalog.Api\\Program.cs",
+              "RelativeDocumentMoniker": "services\\catalog\\src\\Catalog.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\catalog\\src\\Catalog.Api\\Program.cs",
+              "RelativeToolTip": "services\\catalog\\src\\Catalog.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T03:22:47.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\orders\\src\\Orders.Api\\Program.cs",
+              "RelativeDocumentMoniker": "services\\orders\\src\\Orders.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\orders\\src\\Orders.Api\\Program.cs",
+              "RelativeToolTip": "services\\orders\\src\\Orders.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T03:31:22.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SqlConnectionHealthCheck.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\orders\\src\\Orders.Api\\Health\\SqlConnectionHealthCheck.cs",
+              "RelativeDocumentMoniker": "services\\orders\\src\\Orders.Api\\Health\\SqlConnectionHealthCheck.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\orders\\src\\Orders.Api\\Health\\SqlConnectionHealthCheck.cs",
+              "RelativeToolTip": "services\\orders\\src\\Orders.Api\\Health\\SqlConnectionHealthCheck.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAqwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T03:31:10.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\catalog\\src\\Catalog.Api\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "services\\catalog\\src\\Catalog.Api\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\catalog\\src\\Catalog.Api\\appsettings.Development.json",
+              "RelativeToolTip": "services\\catalog\\src\\Catalog.Api\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-01T03:23:56.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SqlConnectionHealthCheck.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\kubecart\\services\\catalog\\src\\Catalog.Api\\Health\\SqlConnectionHealthCheck.cs",
+              "RelativeDocumentMoniker": "services\\catalog\\src\\Catalog.Api\\Health\\SqlConnectionHealthCheck.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\kubecart\\services\\catalog\\src\\Catalog.Api\\Health\\SqlConnectionHealthCheck.cs",
+              "RelativeToolTip": "services\\catalog\\src\\Catalog.Api\\Health\\SqlConnectionHealthCheck.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAqwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T03:22:28.16Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

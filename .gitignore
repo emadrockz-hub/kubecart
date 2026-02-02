@@ -1,0 +1,2 @@
+# Local-only Kubernetes secrets (do not commit real credentials)
+k8s/secrets/*-secrets.yaml

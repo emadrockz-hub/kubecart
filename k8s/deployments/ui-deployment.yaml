@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubecart-ui
+  namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubecart-ui
+  template:
+    metadata:
+      labels:
+        app: kubecart-ui
+    spec:
+      containers:
+        - name: kubecart-ui
+          image: kubecart-ui:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: ui-config
+                  key: APP_BASE_URL

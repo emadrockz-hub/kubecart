@@ -1,0 +1,20 @@
+# Build output
+**/bin/
+**/obj/
+
+# Visual Studio / IDE
+.vs/
+**/.vs/
+.vscode/
+.idea/
+
+# Git
+.git/
+**/.git/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Node
+**/node_modules/
