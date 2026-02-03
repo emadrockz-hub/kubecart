@@ -9,16 +9,15 @@ var dbName = Environment.GetEnvironmentVariable("DB_NAME");
 var dbUser = Environment.GetEnvironmentVariable("DB_USER");
 var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
 
-var currentConn = builder.Configuration.GetConnectionString("Default");
-if (string.IsNullOrWhiteSpace(currentConn) &&
-    !string.IsNullOrWhiteSpace(dbHost) &&
+if (!string.IsNullOrWhiteSpace(dbHost) &&
     !string.IsNullOrWhiteSpace(dbName) &&
     !string.IsNullOrWhiteSpace(dbUser) &&
     !string.IsNullOrWhiteSpace(dbPassword))
 {
     builder.Configuration["ConnectionStrings:Default"] =
-$"Server={dbHost};Database={dbName};User Id={dbUser};Password={dbPassword};Encrypt=False;TrustServerCertificate=True;";
+        $"Server={dbHost};Database={dbName};User Id={dbUser};Password={dbPassword};Encrypt=False;TrustServerCertificate=True;";
 }
+
 
 
 // Add services to the container.
