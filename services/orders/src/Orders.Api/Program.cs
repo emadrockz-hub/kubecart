@@ -17,7 +17,7 @@ if (string.IsNullOrWhiteSpace(currentConn) &&
     !string.IsNullOrWhiteSpace(dbPassword))
 {
     builder.Configuration["ConnectionStrings:Default"] =
-        $"Server={dbHost};Database={dbName};User Id={dbUser};Password={dbPassword};TrustServerCertificate=True;";
+$"Server={dbHost};Database={dbName};User Id={dbUser};Password={dbPassword};Encrypt=False;TrustServerCertificate=True;";
 }
 
 
