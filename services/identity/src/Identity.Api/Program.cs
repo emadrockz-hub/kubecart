@@ -23,6 +23,7 @@ $"Server={dbHost};Database={dbName};User Id={dbUser};Password={dbPassword};Encry
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddSingleton<KubeCart.Identity.Api.Data.DbConnectionFactory>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

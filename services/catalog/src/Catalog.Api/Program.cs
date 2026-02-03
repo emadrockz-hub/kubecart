@@ -24,6 +24,7 @@ $"Server={dbHost};Database={dbName};User Id={dbUser};Password={dbPassword};Encry
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<KubeCart.Catalog.Api.Data.DbConnectionFactory>();
 
 builder.Services.AddHealthChecks()
     .AddCheck("live", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy())
