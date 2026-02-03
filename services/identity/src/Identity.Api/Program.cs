@@ -26,6 +26,7 @@ builder.Services.AddControllers();
 builder.Services.AddSingleton<KubeCart.Identity.Api.Data.DbConnectionFactory>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<KubeCart.Identity.Api.Repositories.DbPingRepository>();
 
 // Health checks:
 // - live: always healthy (no dependencies)

@@ -17,6 +17,7 @@ k8s/secrets/*-secrets.yaml
 *.sln.docstates
 *.cache
 *.pdb
+*.Backup.tmp
 
 # -----------------------------
 # Node / React / Vite
