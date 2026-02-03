@@ -24,6 +24,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<KubeCart.Orders.Api.Data.DbConnectionFactory>();
+builder.Services.AddScoped<KubeCart.Orders.Api.Repositories.DbPingRepository>();
 
 builder.Services.AddHealthChecks()
     .AddCheck("live", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy())
