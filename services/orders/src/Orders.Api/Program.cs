@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Orders.Api.Health;
 
 var builder = WebApplication.CreateBuilder(args);
+
 // Build ConnectionStrings:Default from env vars when running in Kubernetes
 // (ConfigMap/Secret contract: DB_HOST, DB_NAME, DB_USER, DB_PASSWORD)
 var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
@@ -18,13 +19,23 @@ if (!string.IsNullOrWhiteSpace(dbHost) &&
         $"Server={dbHost};Database={dbName};User Id={dbUser};Password={dbPassword};Encrypt=False;TrustServerCertificate=True;";
 }
 
-
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddSingleton<KubeCart.Orders.Api.Data.DbConnectionFactory>();
 builder.Services.AddScoped<KubeCart.Orders.Api.Repositories.DbPingRepository>();
+
+// Catalog base URL (local dev + k8s) via env var
+var catalogBaseUrl =
+    Environment.GetEnvironmentVariable("CATALOG_SERVICE_URL")
+    ?? builder.Configuration["CatalogService:BaseUrl"]
+    ?? "http://localhost:5254";
+
+builder.Services.AddHttpClient<KubeCart.Orders.Api.Clients.CatalogClient>(client =>
+{
+    client.BaseAddress = new Uri(catalogBaseUrl);
+});
 
 builder.Services.AddHealthChecks()
     .AddCheck("live", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy())
