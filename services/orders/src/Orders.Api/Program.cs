@@ -22,9 +22,10 @@ if (!string.IsNullOrWhiteSpace(dbHost) &&
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddScoped<KubeCart.Orders.Api.Repositories.CartRepository>();
 builder.Services.AddSingleton<KubeCart.Orders.Api.Data.DbConnectionFactory>();
 builder.Services.AddScoped<KubeCart.Orders.Api.Repositories.DbPingRepository>();
+builder.Services.AddScoped<KubeCart.Orders.Api.Repositories.CartItemRepository>();
 
 // Catalog base URL (local dev + k8s) via env var
 var catalogBaseUrl =
@@ -34,8 +35,9 @@ var catalogBaseUrl =
 
 builder.Services.AddHttpClient<KubeCart.Orders.Api.Clients.CatalogClient>(client =>
 {
-    client.BaseAddress = new Uri(catalogBaseUrl);
+    client.BaseAddress = new Uri("http://localhost:5254");
 });
+
 
 builder.Services.AddHealthChecks()
     .AddCheck("live", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy())

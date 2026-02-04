@@ -19,7 +19,7 @@
         "DB_HOST": "localhost,1433",
         "DB_NAME": "KubeCart_Orders",
         "DB_USER": "sa",
-        "DB_PASSWORD": "Cap_project!1",
+        "DB_PASSWORD": "REPLACE_ME",
         "CATALOG_SERVICE_URL": "http://localhost:5254"
       },
       "dotnetRunMessages": true,

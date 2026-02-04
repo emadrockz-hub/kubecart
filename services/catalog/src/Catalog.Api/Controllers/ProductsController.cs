@@ -14,15 +14,24 @@ public sealed class ProductsController : ControllerBase
         _repo = repo;
     }
 
-    // GET /api/catalog/products?categoryId=1&search=shoe
+    // GET /api/catalog/products
     [HttpGet]
     public async Task<IActionResult> GetAll([FromQuery] int? categoryId, [FromQuery] string? search)
     {
-        var products = await _repo.SearchAsync(categoryId, search);
+        // If you already have filtering in repo, use it.
+        // Otherwise fall back to GetAllAsync() and filter later (for now).
+        var products = await _repo.GetAllAsync();
+
+        if (categoryId.HasValue)
+            products = products.Where(p => p.CategoryId == categoryId.Value).ToList();
+
+        if (!string.IsNullOrWhiteSpace(search))
+            products = products.Where(p => p.Name.Contains(search, StringComparison.OrdinalIgnoreCase)).ToList();
+
         return Ok(products);
     }
 
-
+    // GET /api/catalog/products/{id}
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
