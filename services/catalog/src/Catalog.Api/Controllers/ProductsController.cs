@@ -14,12 +14,14 @@ public sealed class ProductsController : ControllerBase
         _repo = repo;
     }
 
+    // GET /api/catalog/products?categoryId=1&search=shoe
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll([FromQuery] int? categoryId, [FromQuery] string? search)
     {
-        var products = await _repo.GetAllAsync();
+        var products = await _repo.SearchAsync(categoryId, search);
         return Ok(products);
     }
+
 
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
