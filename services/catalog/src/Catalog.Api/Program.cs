@@ -19,11 +19,14 @@ if (!string.IsNullOrWhiteSpace(dbHost) &&
 }
 
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers()
+    .AddJsonOptions(o => o.JsonSerializerOptions.WriteIndented = true);
+    builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<KubeCart.Catalog.Api.Data.DbConnectionFactory>();
 builder.Services.AddScoped<KubeCart.Catalog.Api.Repositories.DbPingRepository>();
+builder.Services.AddScoped<KubeCart.Catalog.Api.Repositories.CategoryRepository>();
+builder.Services.AddScoped<KubeCart.Catalog.Api.Repositories.ProductRepository>();
 
 builder.Services.AddHealthChecks()
     .AddCheck("live", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy())
