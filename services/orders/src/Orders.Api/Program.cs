@@ -26,6 +26,7 @@ builder.Services.AddScoped<KubeCart.Orders.Api.Repositories.CartRepository>();
 builder.Services.AddSingleton<KubeCart.Orders.Api.Data.DbConnectionFactory>();
 builder.Services.AddScoped<KubeCart.Orders.Api.Repositories.DbPingRepository>();
 builder.Services.AddScoped<KubeCart.Orders.Api.Repositories.CartItemRepository>();
+builder.Services.AddScoped<Orders.Api.Repositories.Orders.IOrdersRepository, Orders.Api.Repositories.Orders.OrdersRepository>();
 
 // Catalog base URL (local dev + k8s) via env var
 var catalogBaseUrl =

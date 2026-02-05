@@ -1,4 +1,5 @@
-﻿using KubeCart.Catalog.Api.Repositories;
+﻿using Catalog.Api.Contracts.Products;
+using KubeCart.Catalog.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KubeCart.Catalog.Api.Controllers;
@@ -29,6 +30,22 @@ public sealed class ProductsController : ControllerBase
             products = products.Where(p => p.Name.Contains(search, StringComparison.OrdinalIgnoreCase)).ToList();
 
         return Ok(products);
+    }
+
+    [HttpPost("{id:int}/decrease-stock")]
+    public async Task<IActionResult> DecreaseStock([FromRoute] int id, [FromBody] DecreaseStockRequest request)
+    {
+        if (request.Quantity <= 0) return BadRequest("Quantity must be >= 1.");
+
+        var result = await _repo.DecreaseStockAsync(id, request.Quantity);
+
+        return result switch
+        {
+            DecreaseStockResult.Success => NoContent(),
+            DecreaseStockResult.NotFound => NotFound(),
+            DecreaseStockResult.InsufficientStock => Conflict("Insufficient stock."),
+            _ => StatusCode(500)
+        };
     }
 
     // GET /api/catalog/products/{id}

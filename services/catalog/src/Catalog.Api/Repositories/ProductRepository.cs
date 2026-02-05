@@ -4,6 +4,13 @@ using KubeCart.Catalog.Api.Models;
 
 namespace KubeCart.Catalog.Api.Repositories;
 
+public enum DecreaseStockResult
+{
+    Success = 0,
+    NotFound = 1,
+    InsufficientStock = 2
+}
+
 public sealed class ProductRepository
 {
     private readonly DbConnectionFactory _db;
@@ -66,5 +73,29 @@ WHERE 1=1
         using var conn = _db.Create();
         var rows = await conn.QueryAsync<Product>(sql, p);
         return rows.AsList();
+    }
+
+    public async Task<DecreaseStockResult> DecreaseStockAsync(int productId, int quantity)
+    {
+        if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity), "Quantity must be >= 1.");
+
+        const string sql = @"
+UPDATE dbo.Products
+SET Stock = Stock - @Qty,
+    UpdatedAtUtc = SYSUTCDATETIME()
+WHERE Id = @Id
+  AND Stock >= @Qty;
+";
+
+        using var conn = _db.Create();
+
+        var rows = await conn.ExecuteAsync(sql, new { Id = productId, Qty = quantity });
+
+        if (rows > 0) return DecreaseStockResult.Success;
+
+        const string sqlExists = @"SELECT COUNT(1) FROM dbo.Products WHERE Id = @Id;";
+        var exists = await conn.ExecuteScalarAsync<int>(sqlExists, new { Id = productId });
+
+        return exists == 0 ? DecreaseStockResult.NotFound : DecreaseStockResult.InsufficientStock;
     }
 }

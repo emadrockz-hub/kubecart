@@ -28,4 +28,28 @@ public sealed class CatalogClient
 
         return list ?? new List<CatalogProductDto>();
     }
+
+    public async Task<bool> DecreaseStockAsync(int productId, int quantity, CancellationToken ct)
+    {
+        var resp = await _http.PostAsJsonAsync(
+            $"/api/catalog/products/{productId}/decrease-stock",
+            new { quantity },
+            ct);
+
+        // SUCCESS
+        if ((int)resp.StatusCode == 204) return true;
+
+        // Add visibility for debugging
+        var body = await resp.Content.ReadAsStringAsync(ct);
+
+        // 404/409 = business failure
+        if ((int)resp.StatusCode == 404 || (int)resp.StatusCode == 409)
+        {
+            
+        }
+
+        // Unexpected → throw so we see it
+        resp.EnsureSuccessStatusCode();
+        return false;
+    }
 }

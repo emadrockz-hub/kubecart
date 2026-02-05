@@ -4,6 +4,11 @@ using KubeCart.Orders.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KubeCart.Orders.Api.Controllers;
+public sealed class UpdateCartItemQuantityRequest
+{
+    public int Quantity { get; set; }
+}
+
 
 [ApiController]
 [Route("api/orders/carts")]
@@ -13,12 +18,30 @@ public sealed class CartsController : ControllerBase
     private readonly CartItemRepository _items;
     private readonly CatalogClient _catalog;
 
+
     public CartsController(CartRepository repo, CartItemRepository items, CatalogClient catalog)
     {
         _repo = repo;
         _items = items;
         _catalog = catalog;
     }
+
+    // PUT /api/orders/carts/items/{id}?userId=GUID
+    [HttpPut("items/{id:long}")]
+    public async Task<IActionResult> UpdateCartItemQuantity(
+        [FromRoute] long id,
+        [FromQuery] Guid userId,
+        [FromBody] UpdateCartItemQuantityRequest request,
+        CancellationToken ct)
+    {
+        if (request.Quantity <= 0) return BadRequest("Quantity must be >= 1.");
+
+        var updated = await _items.UpdateQuantityInActiveCartAsync(userId, id, request.Quantity, ct);
+        if (!updated) return NotFound();
+
+        return NoContent();
+    }
+
 
     // TEMP for now: pass userId as query string until JWT is wired.
     // Example: /api/orders/carts/active?userId=GUID
@@ -29,6 +52,15 @@ public sealed class CartsController : ControllerBase
 
         var cart = await _repo.GetOrCreateActiveCartAsync(userId);
         return Ok(cart);
+    }
+
+    // DELETE /api/orders/carts/items/{id}?userId=GUID
+    [HttpDelete("items/{id:long}")]
+    public async Task<IActionResult> DeleteCartItem([FromRoute] long id, [FromQuery] Guid userId, CancellationToken ct)
+    {
+        var deleted = await _items.DeleteFromActiveCartAsync(userId, id, ct);
+        if (!deleted) return NotFound();
+        return NoContent();
     }
 
     // GET /api/orders/carts/active/items?userId=GUID
