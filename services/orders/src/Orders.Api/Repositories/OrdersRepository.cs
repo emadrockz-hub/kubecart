@@ -135,8 +135,7 @@ ORDER BY oi.Id;
         }
     }
 
-
-    // Existing GET: /api/orders/orders?userId=GUID
+    // Existing GET: /api/orders/orders
     public async Task<List<OrderResponse>> GetByUserIdAsync(Guid userId, CancellationToken ct)
     {
         using SqlConnection conn = _db.Create();
@@ -203,12 +202,17 @@ ORDER BY oi.Id;
     // Creates order + orderitems from active cart, and closes cart.
     // Snapshot fields are filled by caller using Catalog HTTP.
     public async Task<Guid> CreateOrderFromActiveCartAsync(
-        Guid userId,
-        IReadOnlyList<OrderItemSnapshot> snapshots,
-        CancellationToken ct)
+     Guid userId,
+     List<OrderItemSnapshot> snapshots,
+     string status,
+     CancellationToken ct)
+
     {
         if (snapshots is null || snapshots.Count == 0)
             throw new InvalidOperationException("No order items to checkout.");
+
+        if (string.IsNullOrWhiteSpace(status))
+            status = "Pending";
 
         using SqlConnection conn = _db.Create();
         await conn.OpenAsync(ct);
@@ -273,11 +277,11 @@ VALUES (@Id, @UserId, @Status, @TotalAmount, SYSUTCDATETIME());
 
             await conn.ExecuteAsync(new CommandDefinition(
                 sqlInsertOrder,
-                new { Id = orderId, UserId = userId, Status = "Pending", TotalAmount = total },
+                new { Id = orderId, UserId = userId, Status = status, TotalAmount = total },
                 transaction: tx,
                 cancellationToken: ct));
 
-            // 6) Insert OrderItems (snapshot + cart qty) - NO CreatedAtUtc column in your table
+            // 6) Insert OrderItems (snapshot + cart qty)
             const string sqlInsertItem = @"
 INSERT INTO dbo.OrderItems
 (

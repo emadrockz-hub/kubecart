@@ -5,6 +5,12 @@
 # Local-only Kubernetes secrets (do not commit real credentials)
 k8s/secrets/*-secrets.yaml
 
+# K8s real secrets (never commit)
+kubecart/k8s/secrets/*-secrets.yaml
+kubecart/k8s/secrets/*.local.yaml
+kubecart/k8s/secrets/kubecart-secrets.yaml
+
+
 # -----------------------------
 # .NET / Visual Studio
 # -----------------------------

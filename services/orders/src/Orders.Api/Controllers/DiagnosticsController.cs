@@ -1,6 +1,9 @@
 ﻿using KubeCart.Orders.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using KubeCart.Orders.Api.Clients;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Orders.Api.Security;
 
 namespace KubeCart.Orders.Api.Controllers;
 
@@ -38,5 +41,29 @@ public sealed class DiagnosticsController : ControllerBase
     {
         var result = await _repo.PingAsync();
         return Ok(new { ok = result == 1 });
+    }
+
+    [Authorize]
+    [HttpGet("whoami")]
+    public ActionResult<object> WhoAmI()
+    {
+        var userId =
+            User.FindFirstValue("userId")
+            ?? User.FindFirstValue("sub")
+            ?? User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        var email =
+            User.FindFirstValue("email")
+            ?? User.FindFirstValue(ClaimTypes.Email);
+
+        return Ok(new { userId, email });
+    }
+
+    [Authorize]
+    [HttpGet("effective-user")]
+    public ActionResult<object> EffectiveUser()
+    {
+        var jwtUserId = UserContext.TryGetUserId(User);
+        return Ok(new { jwtUserId = jwtUserId?.ToString() });
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Catalog.Api.Contracts.Products;
 using KubeCart.Catalog.Api.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KubeCart.Catalog.Api.Controllers;
@@ -19,8 +20,6 @@ public sealed class ProductsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll([FromQuery] int? categoryId, [FromQuery] string? search)
     {
-        // If you already have filtering in repo, use it.
-        // Otherwise fall back to GetAllAsync() and filter later (for now).
         var products = await _repo.GetAllAsync();
 
         if (categoryId.HasValue)
@@ -32,6 +31,18 @@ public sealed class ProductsController : ControllerBase
         return Ok(products);
     }
 
+    // GET /api/catalog/products/{id}
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var product = await _repo.GetByIdAsync(id);
+        if (product is null) return NotFound();
+        return Ok(product);
+    }
+
+    // POST /api/catalog/products/{id}/decrease-stock
+    // INTERNAL ONLY (Orders service calls this)
+    [Authorize(Policy = "InternalApi")]
     [HttpPost("{id:int}/decrease-stock")]
     public async Task<IActionResult> DecreaseStock([FromRoute] int id, [FromBody] DecreaseStockRequest request)
     {
@@ -46,14 +57,5 @@ public sealed class ProductsController : ControllerBase
             DecreaseStockResult.InsufficientStock => Conflict("Insufficient stock."),
             _ => StatusCode(500)
         };
-    }
-
-    // GET /api/catalog/products/{id}
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> GetById(int id)
-    {
-        var product = await _repo.GetByIdAsync(id);
-        if (product is null) return NotFound();
-        return Ok(product);
     }
 }

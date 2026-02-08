@@ -2,5 +2,5 @@
 
 public sealed class CheckoutRequest
 {
-    public Guid UserId { get; set; }
+    public PaymentRequest? Payment { get; set; }
 }

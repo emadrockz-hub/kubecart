@@ -9,10 +9,8 @@ public interface IOrdersRepository
 
     Task<List<ActiveCartItem>> GetActiveCartItemsAsync(Guid userId, CancellationToken ct);
 
-    Task<Guid> CreateOrderFromActiveCartAsync(
-        Guid userId,
-        IReadOnlyList<OrderItemSnapshot> snapshots,
-        CancellationToken ct);
+    Task<Guid> CreateOrderFromActiveCartAsync(Guid userId, List<OrderItemSnapshot> snapshots, string status, CancellationToken ct);
+
     Task<bool> DeleteOrderAsync(Guid orderId, CancellationToken ct);
 }
 
