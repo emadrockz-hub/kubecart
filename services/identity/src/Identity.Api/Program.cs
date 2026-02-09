@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Data;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +32,7 @@ builder.Services.AddScoped<KubeCart.Identity.Api.Repositories.DbPingRepository>(
 builder.Services.AddScoped<KubeCart.Identity.Api.Repositories.UsersRepository>();
 builder.Services.AddScoped<KubeCart.Identity.Api.Repositories.RolesRepository>();
 builder.Services.AddScoped<KubeCart.Identity.Api.Repositories.UserRolesRepository>();
+builder.Services.AddScoped<Identity.Api.Data.ITodoRepository, Identity.Api.Data.TodoRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

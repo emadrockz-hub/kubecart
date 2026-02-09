@@ -19,8 +19,8 @@
         "DB_HOST": "localhost,1433",
         "DB_NAME": "KubeCart_Identity",
         "DB_USER": "sa",
-        "DB_PASSWORD": "REPLACE_ME",
-        "Jwt__SigningKey": "REPLACE_ME"
+        "DB_PASSWORD": "Cap_project!1",
+        "Jwt__SigningKey": "cO74o0DgQ26ToUViJIEpD5bvfEakDv19v91oBcDD1HrNQ5UJXnMPjLS6a9VRAwZcXidkjBjRoq8ug5QZjGiNgQ=="
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7228;http://localhost:5276"
