@@ -50,15 +50,38 @@ Orders:   http://kubecart.local/api/orders/swagger
 
 
 ## 3) Health / Liveness / Readiness
-### If health endpoints exist (recommended)
-Try these first (common patterns):
-- LIVE:  /health/live  OR /healthz/live  OR /live
-- READY: /health/ready OR /healthz/ready OR /ready
-- BASIC: /health
 
-Examples:
-- http://localhost:5276/health
-- http://kubecart.local/health
+### Catalog API
+- LIVE:  GET /health/live
+- READY: GET /health/ready
+
+Local:
+- http://localhost:5254/health/live
+- http://localhost:5254/health/ready
+
+K8s / Ingress:
+- http://kubecart.local/api/catalog/health/live
+- http://kubecart.local/api/catalog/health/ready
+
+### Orders API
+- LIVE:  GET /health/live
+- READY: GET /health/ready
+
+Local:
+- http://localhost:5102/health/live
+- http://localhost:5102/health/ready
+
+K8s / Ingress:
+- http://kubecart.local/api/orders/health/live
+- http://kubecart.local/api/orders/health/ready
+
+### Identity API
+Health endpoints: (confirm if implemented)
+- If available, expected:
+  - http://localhost:5276/health/live
+  - http://localhost:5276/health/ready
+  - http://kubecart.local/api/auth/health/live
+  - http://kubecart.local/api/auth/health/ready
 
 > If these return 404, health endpoints are not implemented yet.
 > In that case, DevOps should treat “Swagger loads + DB connection succeeds” as the readiness check.
