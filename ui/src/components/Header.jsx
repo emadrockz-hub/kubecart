@@ -17,7 +17,7 @@ export default function Header({ loggedIn, onLogout }) {
   const menuRef = useRef(null);
 
   const role = loggedIn ? (getRole() || "Customer") : null;
-  const displayName = !loggedIn ? null : (role === "Admin" ? "Emad" : "Guest");
+  const displayName = !loggedIn ? null : role === "Admin" ? "Emad" : "Guest";
 
   async function loadCartCount() {
     if (!isLoggedIn()) {
@@ -27,7 +27,10 @@ export default function Header({ loggedIn, onLogout }) {
     try {
       const data = await apiFetch("/api/orders/carts/active/items");
       const items = data?.items || data?.Items || [];
-      const count = items.reduce((sum, it) => sum + Number(it?.quantity ?? it?.Quantity ?? 0), 0);
+      const count = items.reduce(
+        (sum, it) => sum + Number(it?.quantity ?? it?.Quantity ?? 0),
+        0
+      );
       setCartCount(count);
     } catch {
       setCartCount(0);
@@ -130,7 +133,12 @@ export default function Header({ loggedIn, onLogout }) {
               }}
             />
 
-            <button className="azSearchIcon" type="button" onClick={goSearchNow} aria-label="Search" />
+            <button
+              className="azSearchIcon"
+              type="button"
+              onClick={goSearchNow}
+              aria-label="Search"
+            />
           </div>
 
           <div className="azRight">
@@ -140,7 +148,11 @@ export default function Header({ loggedIn, onLogout }) {
             </div>
 
             <div className="azAccount" ref={menuRef}>
-              <button className="azMini azAccountBtn" type="button" onClick={() => setMenuOpen((v) => !v)}>
+              <button
+                className="azMini azAccountBtn"
+                type="button"
+                onClick={() => setMenuOpen((v) => !v)}
+              >
                 <div className="azMiniTop">
                   {!loggedIn ? "Hello, sign in" : `Hello, ${displayName}`}
                 </div>
@@ -172,11 +184,23 @@ export default function Header({ loggedIn, onLogout }) {
                         type="button"
                         onClick={() => {
                           setMenuOpen(false);
+                          nav("/todos");
+                        }}
+                      >
+                        Your Todos
+                      </button>
+
+                      <button
+                        className="azDropItem"
+                        type="button"
+                        onClick={() => {
+                          setMenuOpen(false);
                           nav("/orders");
                         }}
                       >
                         Your Orders
                       </button>
+
                       <button
                         className="azDropItem"
                         type="button"
@@ -187,7 +211,9 @@ export default function Header({ loggedIn, onLogout }) {
                       >
                         Your Cart
                       </button>
+
                       <div className="azDropDivider" />
+
                       <button
                         className="azDropItem"
                         type="button"
@@ -204,12 +230,22 @@ export default function Header({ loggedIn, onLogout }) {
               ) : null}
             </div>
 
-            <button type="button" className="azMini" onClick={goOrders} style={{ background: "transparent" }}>
+            <button
+              type="button"
+              className="azMini"
+              onClick={goOrders}
+              style={{ background: "transparent" }}
+            >
               <div className="azMiniTop">Returns</div>
               <div className="azMiniBottom">&amp; Orders</div>
             </button>
 
-            <button type="button" className="azCart" onClick={goCart} aria-label="Cart">
+            <button
+              type="button"
+              className="azCart"
+              onClick={goCart}
+              aria-label="Cart"
+            >
               <img src={cartIcon} alt="" className="azCartSvg" />
               <div className="azCartCount">{cartCount}</div>
               <div className="azCartText">Cart</div>
@@ -225,16 +261,36 @@ export default function Header({ loggedIn, onLogout }) {
           </button>
 
           <div className="azNavLinks">
-            <a className="azNavLink" href="#">Amazon Haul</a>
-            <a className="azNavLink" href="#">Medical Care</a>
-            <a className="azNavLink" href="#">Amazon Basics</a>
-            <a className="azNavLink" href="#">Best Sellers</a>
-            <a className="azNavLink" href="#">Books</a>
-            <a className="azNavLink" href="#">Prime</a>
-            <a className="azNavLink" href="#">Registry</a>
-            <a className="azNavLink" href="#">Gift Cards</a>
-            <a className="azNavLink" href="#">Smart Home</a>
-            <a className="azNavLink" href="#">New Releases</a>
+            <a className="azNavLink" href="#">
+              Amazon Haul
+            </a>
+            <a className="azNavLink" href="#">
+              Medical Care
+            </a>
+            <a className="azNavLink" href="#">
+              Amazon Basics
+            </a>
+            <a className="azNavLink" href="#">
+              Best Sellers
+            </a>
+            <a className="azNavLink" href="#">
+              Books
+            </a>
+            <a className="azNavLink" href="#">
+              Prime
+            </a>
+            <a className="azNavLink" href="#">
+              Registry
+            </a>
+            <a className="azNavLink" href="#">
+              Gift Cards
+            </a>
+            <a className="azNavLink" href="#">
+              Smart Home
+            </a>
+            <a className="azNavLink" href="#">
+              New Releases
+            </a>
           </div>
         </div>
       </div>

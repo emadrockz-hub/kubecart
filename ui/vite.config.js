@@ -8,7 +8,8 @@ export default defineConfig({
     proxy: {
       "/api/catalog": { target: "http://localhost:5254", changeOrigin: true },
       "/api/orders": { target: "http://localhost:5102", changeOrigin: true },
-      "/api/auth": { target: "http://localhost:5276", changeOrigin: true }
+      "/api/auth": { target: "http://localhost:5276", changeOrigin: true },
+      "/api/todos": { target: "http://localhost:5276", changeOrigin: true }
     }
   }
 });

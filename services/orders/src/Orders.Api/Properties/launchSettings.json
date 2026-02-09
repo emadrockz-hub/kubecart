@@ -19,10 +19,10 @@
         "DB_HOST": "localhost,1433",
         "DB_NAME": "KubeCart_Orders",
         "DB_USER": "sa",
-        "DB_PASSWORD": "REPLACE_ME",
+        "DB_PASSWORD": "Cap_project!1",
         "CATALOG_SERVICE_URL": "http://localhost:5254",
-        "Jwt__SigningKey": "REPLACE_ME",
-        "INTERNAL_API_KEY": "REPLACE_ME"
+        "Jwt__SigningKey": "cO74o0DgQ26ToUViJIEpD5bvfEakDv19v91oBcDD1HrNQ5UJXnMPjLS6a9VRAwZcXidkjBjRoq8ug5QZjGiNgQ==",
+        "INTERNAL_API_KEY": "243e85334c1b473388ecb4df8dde7162"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7008;http://localhost:5102"

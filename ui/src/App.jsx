@@ -9,6 +9,7 @@ import Login from "./pages/Login.jsx";
 import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import Orders from "./pages/Orders.jsx";
+import TodosPage from "./pages/TodosPage";
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(isLoggedIn());
@@ -33,6 +34,7 @@ export default function App() {
       <main className="container">
         <Routes>
   <Route path="/" element={<Home />} />
+<Route path="/todos" element={<TodosPage />} />
 
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
@@ -61,6 +63,16 @@ export default function App() {
       </ProtectedRoute>
     }
   />
+
+  <Route
+  path="/todos"
+  element={
+    <ProtectedRoute>
+      <TodosPage />
+    </ProtectedRoute>
+  }
+/>
+
   <Route path="*" element={<Navigate to="/" replace />} />
 </Routes>
       </main>

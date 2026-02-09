@@ -19,8 +19,8 @@
         "DB_HOST": "localhost,1433",
         "DB_NAME": "KubeCart_Catalog",
         "DB_USER": "sa",
-        "DB_PASSWORD": "REPLACE_ME",
-        "INTERNAL_API_KEY": "REPLACE_ME"
+        "DB_PASSWORD": "Cap_project!1",
+        "INTERNAL_API_KEY": "243e85334c1b473388ecb4df8dde7162"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7123;http://localhost:5254"
