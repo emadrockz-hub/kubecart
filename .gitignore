@@ -48,3 +48,7 @@ pnpm-debug.log*
 # -----------------------------
 Thumbs.db
 .DS_Store
+
+# Local env (never commit)
+.env.local
+.env
