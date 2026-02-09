@@ -1,0 +1,1 @@
+Placeholder asset marker. We'll add placeholder.png later.

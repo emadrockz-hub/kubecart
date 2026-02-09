@@ -1,0 +1,485 @@
+:root{
+  --text:#0F1111;
+  --muted:#565959;
+  --border:#e7e7e7;
+  --page:#EAEDED;
+
+  --azTop:#131921;
+  --azNav:#232F3E;
+  --azYellow:#febd69;         /* search icon bg */
+  --azBtnYellow:#FFD814;      /* sign-in button */
+  --azBtnYellowBorder:#FCD200;
+
+  --shadow: 0 10px 25px rgba(17,24,39,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--page);
+  color:var(--text);
+}
+
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{max-width:1200px;margin:0 auto;padding:16px}
+
+/* cards/buttons/inputs (keep your app stable) */
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  transition:transform 180ms ease, box-shadow 180ms ease;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(17,24,39,0.10)}
+
+.pageTitle{font-size:28px;margin:0 0 6px 0}
+.pageSub{margin:0;color:var(--muted)}
+
+.input{
+  width:100%;
+  padding:11px 12px;
+  border-radius:10px;
+  border:1px solid #d1d5db;
+  outline:none;
+  background:#fff;
+}
+.input:focus{border-color:#9ca3af}
+
+.btn{
+  border:1px solid var(--border);
+  background:#fff;
+  padding:10px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+
+.btn-primary{
+  background: #111827;
+  color:#fff;
+  border-color:#111827;
+  font-weight:900;
+}
+.btn-primary:hover{filter:brightness(1.05)}
+
+.notice{
+  background:#fee2e2;
+  border:1px solid #fecaca;
+  padding:10px;
+  border-radius:10px;
+}
+
+/* ===== AMAZON HEADER ===== */
+.azHeaderWrap{position:sticky;top:0;z-index:30}
+
+/* Top bar */
+.azTopBar{
+  background:var(--azTop);
+  color:#fff;
+}
+.azTopInner{
+  max-width: 1400px;
+  margin:0 auto;
+  padding: 8px 12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* Logo */
+.azLogo{
+  font-weight:900;
+  font-size:22px;
+  letter-spacing:0.2px;
+  padding:6px 8px;
+  border-radius:6px;
+  text-transform: lowercase;
+}
+.azLogo:hover{background:rgba(255,255,255,0.08);text-decoration:none}
+
+/* Delivering block */
+.azDeliver{
+  padding:6px 8px;
+  border-radius:6px;
+  min-width: 210px;
+}
+.azDeliver:hover{background:rgba(255,255,255,0.08)}
+.azDeliverSmall{font-size:12px;opacity:.9}
+.azDeliverBig{font-size:14px;font-weight:800}
+
+/* Search */
+.azSearch{
+  flex:1;
+  display:flex;
+  align-items:center;
+  min-width: 520px;
+}
+.azAllBtn{
+  height:40px;
+  padding:0 10px;
+  border:0;
+  border-radius:8px 0 0 8px;
+  background:#f3f3f3;
+  color:#111;
+  cursor:pointer;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.azSearchInput{
+  height:40px;
+  flex:1;
+  border:0;
+  outline:none;
+  padding:0 12px;
+  font-size:14px;
+}
+.azSearchIcon{
+  height:40px;
+  width:48px;
+  border:0;
+  border-radius:0 8px 8px 0;
+  background:var(--azYellow);
+  cursor:pointer;
+  position: relative;
+}
+.azSearchIcon::before{
+  content: "🔍";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+}
+.azCartSvg{
+  width: 34px;
+  height: 34px;
+  display: block;
+}
+
+
+/* Right cluster */
+.azRight{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.azMini{
+  padding:6px 8px;
+  border-radius:6px;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+.azMini:hover{background:rgba(255,255,255,0.08)}
+.azMiniTop{font-size:12px;opacity:.95}
+.azMiniBottom{font-size:14px;font-weight:800}
+.azCaret{opacity:.9;font-size:12px}
+
+/* Account dropdown */
+.azAccount{position:relative}
+.azDropdown{
+  position:absolute;
+  right:0;
+  top:52px;
+  width: 260px;
+  background:#fff;
+  color:#111;
+  border-radius:10px;
+  border:1px solid var(--border);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+  padding:10px;
+  z-index:50;
+}
+.azDropPrimary{
+  width:100%;
+  background: var(--azBtnYellow);
+  border: 1px solid var(--azBtnYellowBorder);
+  border-radius:10px;
+  padding:10px 12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.azDropHint{margin-top:8px;color:#6b7280;font-size:12px}
+.azDropDivider{height:1px;background:var(--border);margin:10px 0}
+.azDropItem{
+  width:100%;
+  padding:10px 10px;
+  border:0;
+  background:#fff;
+  cursor:pointer;
+  text-align:left;
+  border-radius:8px;
+}
+.azDropItem:hover{background:#f3f4f6}
+
+/* Cart */
+.azCart{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+}
+.azCart:hover{
+  border-color: rgba(255,255,255,0.25);
+}
+.azCartIcon{font-size:22px;line-height:1}
+.azCartCount{
+  position: absolute;
+  left: 22px;      /* sits on top-right of icon */
+  top: 6px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #f08804;  /* Amazon orange */
+  color: #111;
+  font-weight: 900;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.azCartText{
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Nav bar */
+.azNavBar{
+  background:var(--azNav);
+  color:#fff;
+}
+.azNavInner{
+  max-width: 1400px;
+  margin:0 auto;
+  padding: 6px 12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.azHamburger{
+  background:transparent;
+  border:0;
+  color:#fff;
+  cursor:pointer;
+  font-weight:900;
+  padding:6px 8px;
+  border-radius:6px;
+}
+.azHamburger:hover{background:rgba(255,255,255,0.08)}
+.azHamburger span{margin-left:6px}
+
+.azNavLinks{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:nowrap;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.azNavLink{
+  color:#fff;
+  font-size:13px;
+  padding:6px 6px;
+  border-radius:6px;
+}
+.azNavLink:hover{background:rgba(255,255,255,0.08);text-decoration:none}
+
+/* Responsive: hide delivering + some links if needed */
+@media (max-width: 1100px){
+  .azDeliver{display:none}
+  .azSearch{min-width: 360px}
+}
+@media (max-width: 820px){
+  .azNavLinks{display:none}
+}
+/* FIX: make top-right header text crisp (no foggy opacity) */
+.azMiniTop { opacity: 1 !important; color: #ffffff !important; }
+.azMiniBottom { opacity: 1 !important; color: #ffffff !important; }
+
+/* Ensure account button text always stays bright */
+.azAccountBtn { opacity: 1 !important; }
+.azAccountBtn * { opacity: 1 !important; }
+
+/* FORCE crisp white for the account area (wins over any opacity) */
+.azRight .azMiniTop,
+.azRight .azMiniBottom,
+.azRight .azMini,
+.azRight .azMini * {
+  opacity: 1 !important;
+  color: #fff !important;
+  text-shadow: none !important;
+}
+
+/* make Account button background slightly clearer */
+.azAccountBtn {
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.20) !important;
+}
+/* ===== Amazon-like product cards ===== */
+.azCard{
+  background:#fff;
+  border-radius:14px;
+  box-shadow: 0 10px 25px rgba(17,24,39,0.06);
+  border: 1px solid #e7e7e7;
+  overflow:hidden;
+}
+
+.azCardImgWrap{
+  height: 220px;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  padding: 12px;
+  border-bottom: 1px solid #efefef;
+}
+
+
+.azCardImg{
+  width:100%;
+  height:100%;
+  object-fit: contain;      /* key change */
+  border-radius:12px;
+  background:#fff;
+}
+
+
+
+.azCardBody{
+  padding: 14px 14px 16px 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.azCardTitle{
+  font-size: 15px;
+  font-weight: 800;
+  color: #0F1111;
+  line-height: 1.25;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+
+  overflow: hidden;
+  min-height: 38px;
+  margin: 2px 0 2px 0;
+}
+
+
+.azCardRatingRow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.azCardRatingCount{
+  font-size:12px;
+  color:#007185; /* amazon-ish link teal */
+  font-weight:700;
+}
+
+.azCardPriceRow{
+  display:flex;
+  align-items:baseline;
+  gap:2px;
+  margin-top: 2px;
+}
+
+.azPrice{
+  font-size:13px;
+  font-weight:900;
+  margin-top:3px;
+}
+
+.azPriceMain{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-0.2px;
+}
+
+.azPrimeRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  font-size:12px;
+  color:#111;
+}
+
+.azPrimeBadge{
+  font-weight:900;
+  color:#00A8E1;
+  border:1px solid #cfefff;
+  background:#ecfbff;
+  padding:2px 8px;
+  border-radius:999px;
+}
+
+.azLowStock{
+  color:#b12704;
+  font-weight:900;
+}
+
+.azStock{
+  color:#067d62;
+  font-weight:800;
+}
+
+.azAddBtn{
+  margin-top: 6px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #FCD200;
+  background: #FFD814;
+  font-weight: 900;
+  cursor: pointer;
+}
+.azAddBtn:hover{filter:brightness(0.98)}
+.azAddBtn:disabled{opacity:.65;cursor:not-allowed}
+
+/* --- Header icon + hover polish --- */
+
+/* Force the SVG cart icon to look white on dark header */
+.azCartSvg{
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+.azCart:hover .azCartSvg{
+  opacity: 1;
+}
+/* Top-right buttons hover highlight like Amazon */
+.azMini{
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.azMini:hover,
+.azAccountBtn:hover{
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.06);
+  text-decoration: none;
+}
+
+/* Make Returns & Orders link behave like button on hover */
+.azRight a.azMini:hover{
+  text-decoration: none;
+}
