@@ -67,6 +67,13 @@ Monorepo: KubeCart (production-style Minikube app)
 5) Apply Ingress
 6) Verify endpoints (health checks / swagger)
 
+## Quick deploy (Windows / PowerShell)
+From repo root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\deploy-minikube.ps1
+
+
 ## 6) Verification checklist
 ### APIs
 - Identity swagger loads
