@@ -42,6 +42,12 @@ Monorepo: KubeCart (production-style Minikube app)
   - k8s/secrets/*-secrets.yaml (ignored by git), OR
   - CI/CD secret store (GitHub Actions secrets / Vault / etc.)
 
+### Local env workflow (recommended)
+- Repo includes `.env.example` (placeholders only).
+- For local dev, copy `.env.example` → `.env.local` and fill real values locally.
+- `.env.local` is gitignored and must never be committed.
+
+
 ### Required secret values (examples only)
 - DB:
   - DB_HOST=REPLACE_ME
