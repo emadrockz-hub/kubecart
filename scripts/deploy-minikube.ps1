@@ -2,7 +2,7 @@
 # Usage: powershell -ExecutionPolicy Bypass -File .\scripts\deploy-minikube.ps1
 
 $ErrorActionPreference = "Stop"
-$NS = "demo"   # change namespace here if needed
+$NS = "demo"
 
 Write-Host "== KubeCart: Minikube Deploy =="
 
@@ -34,17 +34,16 @@ $cfgFiles = @(
   ".\k8s\config\orders-configmap.yaml",
   ".\k8s\config\ui-configmap.yaml"
 )
-
 foreach ($f in $cfgFiles) {
   if (Test-Path $f) { kubectl apply -n $NS -f $f | Out-Host }
   else { Write-Host "WARN: missing $f" }
 }
 
-Write-Host "`n[5/8] Applying Secrets (LOCAL ONLY, must exist in ignored files)..."
+Write-Host "`n[5/8] Applying Secrets (LOCAL ONLY)..."
 if (Test-Path ".\k8s\secrets") {
   kubectl apply -n $NS -f .\k8s\secrets\ | Out-Host
 } else {
-  Write-Host "WARN: .\k8s\secrets not found"
+  Write-Host "WARN: .\k8s\secrets not found (pods may fail if required env vars are missing)"
 }
 
 Write-Host "`n[6/8] Applying Deployments..."
@@ -61,27 +60,27 @@ if (Test-Path ".\k8s\services") {
   Write-Host "WARN: .\k8s\services not found"
 }
 
-Write-Host "`n[8/8] Applying Ingress (non-overlapping only)..."
-if (Test-Path ".\k8s\ingress") {
-  # Apply only the consolidated + health ingresses to avoid duplicate host/path webhook errors
-  $ingFiles = @(
-    ".\k8s\ingress\kubecart-ingress.yaml",
-    ".\k8s\ingress\kubecart-ingress-health.yaml"
-  )
-
-  foreach ($f in $ingFiles) {
-    if (Test-Path $f) { kubectl apply -n $NS -f $f | Out-Host }
-    else { Write-Host "WARN: missing $f" }
-  }
+Write-Host "`n[8/8] Applying Ingress..."
+# Apply ONLY this one ingress file (avoid duplicate host/path conflicts)
+if (Test-Path ".\k8s\ingress\ingress.yaml") {
+  kubectl apply -n $NS -f .\k8s\ingress\ingress.yaml | Out-Host
 } else {
-  Write-Host "WARN: .\k8s\ingress not found"
+  Write-Host "WARN: .\k8s\ingress\ingress.yaml not found"
 }
+
+Write-Host "`n== Rollout status =="
+kubectl -n $NS rollout status deploy/catalog-api | Out-Host
+kubectl -n $NS rollout status deploy/identity-api | Out-Host
+kubectl -n $NS rollout status deploy/orders-api | Out-Host
+kubectl -n $NS rollout status deploy/kubecart-ui | Out-Host
 
 Write-Host "`n== Current pods =="
 kubectl get pods -n $NS | Out-Host
 
-Write-Host "`nTip: If pods are not Running, use:"
-Write-Host "  kubectl describe pod -n $NS <pod-name>"
-Write-Host "  kubectl logs -n $NS <pod-name> --all-containers"
+Write-Host "`n== Quick checks =="
+Write-Host "  curl http://kubecart.local/api/auth/health/ready"
+Write-Host "  curl http://kubecart.local/api/catalog/health/ready"
+Write-Host "  curl http://kubecart.local/api/orders/health/ready"
+Write-Host "  curl http://kubecart.local/"
 
 Write-Host "`n== Done =="

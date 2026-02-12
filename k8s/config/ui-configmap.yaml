@@ -5,3 +5,7 @@ metadata:
   namespace: demo
 data:
   APP_BASE_URL: "http://kubecart.local"
+  VITE_APP_BASE_URL: "http://kubecart.local"
+  VITE_IDENTITY_API_BASE: "http://kubecart.local/api/auth"
+  VITE_CATALOG_API_BASE: "http://kubecart.local/api/catalog"
+  VITE_ORDERS_API_BASE: "http://kubecart.local/api/orders"

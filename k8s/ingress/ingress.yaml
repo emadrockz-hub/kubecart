@@ -4,15 +4,17 @@ metadata:
   name: kubecart-ingress
   namespace: demo
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /api/$1$2$3
 spec:
+  ingressClassName: nginx
   rules:
     - host: kubecart.local
       http:
         paths:
-          # UI
-          - path: /()(.*)
-            pathType: ImplementationSpecific
+          # UI (no rewrite needed; serve static)
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: ui-service
@@ -20,7 +22,7 @@ spec:
                   number: 80
 
           # Identity
-          - path: /api/auth(/|$)(.*)
+          - path: /api/(auth)(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
@@ -29,7 +31,7 @@ spec:
                   number: 80
 
           # Catalog
-          - path: /api/catalog(/|$)(.*)
+          - path: /api/(catalog)(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
@@ -38,7 +40,7 @@ spec:
                   number: 80
 
           # Orders
-          - path: /api/orders(/|$)(.*)
+          - path: /api/(orders)(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
